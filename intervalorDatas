@@ -1,0 +1,23 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-recur/1.0.7/moment-recur.min.js"></script>
+<script>
+    moment.utc().format('YYYY-MM-DD HH:mm:ss');
+
+    let initialDate = '2019-06-10';
+    let finalDate = '2019-12-10';
+    let interval = 3;
+    let type = 'months'; // [days, months, years]
+
+    let dateArr = moment()
+                    .recur(initialDate, finalDate)
+                    .every(interval, type)
+                    // .except('2019-09-10')
+                    .all();
+
+    let arr = [];
+    for (var i in dateArr) {
+        arr.push(dateArr[i].format('YYYY-MM-DD'));
+    }
+
+    console.log(arr);
+</script>
